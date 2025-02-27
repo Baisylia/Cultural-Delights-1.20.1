@@ -5,6 +5,7 @@ import com.ncpbails.culturaldelights.block.ModBlocks;
 import com.ncpbails.culturaldelights.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -40,9 +41,37 @@ public class CulturalDelights {
    }
 
    private void commonSetup( final FMLCommonSetupEvent event ) {
-
+      event.enqueueWork(CulturalDelights::registerCompostables);
    }
 
+   public static void registerCompostables() {
+      // 30% chance
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUCUMBER_SEEDS.get(), 0.3F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CORN_KERNELS.get(), 0.3F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.EGGPLANT_SEEDS.get(), 0.3F);
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.AVOCADO_PIT.get().asItem(), 0.3F);
+
+      // 50% chance
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUT_AVOCADO.get(), 0.5F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUT_CUCUMBER.get(), 0.5F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUT_EGGPLANT.get(), 0.5F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUT_PICKLE.get(), 0.5F);
+
+      // 65% chance
+      ComposterBlock.COMPOSTABLES.put(ModItems.AVOCADO.get(), 0.65F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CUCUMBER.get(), 0.65F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.CORN_COB.get(), 0.65F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.EGGPLANT.get(), 0.65F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.WHITE_EGGPLANT.get(), 0.65F);
+      ComposterBlock.COMPOSTABLES.put(ModItems.PICKLE.get(), 0.65F);
+
+      //100% chance
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.WHITE_EGGPLANT_CRATE.get().asItem(), 1.0F);
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.EGGPLANT_CRATE.get().asItem(), 1.0F);
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.CORN_COB_CRATE.get().asItem(), 1.0F);
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.AVOCADO_CRATE.get().asItem(), 1.0F);
+      ComposterBlock.COMPOSTABLES.put(ModBlocks.PICKLE_CRATE.get().asItem(), 1.0F);
+   }
    // Add the example block item to the building blocks tab
    private void addCreative( BuildCreativeModeTabContentsEvent event ) {
       if ( event.getTabKey() == ModCreativeTabs.TAB_FARMERS_DELIGHT.getKey() ) {
