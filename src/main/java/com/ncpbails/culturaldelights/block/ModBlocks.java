@@ -83,6 +83,12 @@ public class ModBlocks {
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
             }, false, 0);
 
+    public static final RegistryObject<Block> AVOCADO_LEAF_CARPET = registerBlock("avocado_leaf_carpet",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, true, 300);
 
     public static final RegistryObject<Block> CUCUMBERS = registerBlockWithoutBlockItem("cucumbers",
             () -> new CucumbersBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
@@ -98,6 +104,10 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> AVOCADO_CRATE = registerBlock("avocado_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
+            , false, 0);
+
+    public static final RegistryObject<Block> AVOCADO_BUNDLE = registerBlock("avocado_bundle",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
             , false, 0);
 
@@ -122,6 +132,9 @@ public class ModBlocks {
             , false, 0);
 
     public static final RegistryObject<Block> EXOTIC_ROLL_MEDLEY = registerBlock("exotic_roll_medley",
+            () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()), false, 0);
+
+    public static final RegistryObject<Block> EXOTIC_ROLL_MEDLEY_BLOCK = registerBlock("exotic_roll_medley_block",
             () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()), false, 0);
 
 
