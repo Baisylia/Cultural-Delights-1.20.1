@@ -5,7 +5,9 @@ import com.baisylia.culturaldelights.block.ModBlocks;
 import com.baisylia.culturaldelights.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -42,6 +44,12 @@ public class CulturalDelights {
 
    private void commonSetup( final FMLCommonSetupEvent event ) {
       event.enqueueWork(CulturalDelights::registerCompostables);
+      event.enqueueWork(CulturalDelights::registerPottables);
+   }
+
+   public static void registerPottables() {
+      FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+      pot.addPlant(ModBlocks.AVOCADO_SAPLING.getId(), ModBlocks.POTTED_AVOCADO_SAPLING);
    }
 
    public static void registerCompostables() {
