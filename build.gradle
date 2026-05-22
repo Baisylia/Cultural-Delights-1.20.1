@@ -149,7 +149,7 @@ dependencies {
     // If you wish to declare dependencies against mods, make sure to use the 'mod*' configurations so that they're remapped.
     // See https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md#remapping-mod-dependencies for more information
 
-    modImplementation("curse.maven:farmers-delight-398521:5051242")
+    modImplementation("curse.maven:farmers-delight-398521:8007609")
     modImplementation("curse.maven:jei-238222:5440261")
     modImplementation("curse.maven:appleskin-248787:4770828")
 
